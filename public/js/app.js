@@ -2062,6 +2062,14 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+onload = function onload() {
+  var theme = document.getElementById('theme');
+  var body = document.getElementById('body');
+  theme.addEventListener('click', function () {
+    body.classList.toggle('dark');
+  });
+};
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

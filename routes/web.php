@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\SchoolsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
-Route::get('/schools', function () {
-    return view('schools');
-});
+Route::get('/', [MemberController::class, 'index'])->name('index');
+Route::post('/', [MemberController::class, 'store']);
+
+Route::get('/schools', [SchoolsController::class, 'index'])->name('schools');
