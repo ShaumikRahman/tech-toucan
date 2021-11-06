@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\SchoolMember;
 
 class MemberController extends Controller
 {
@@ -18,6 +20,21 @@ class MemberController extends Controller
             'email' => 'required',
             'schools' => 'required'
         ]);
+
+        User::create([
+            'firstname' => $r->firstname,
+            'lastname' => $r->lastname,
+            'email' => $r->email
+        ]);
+
+        //fix
+
+        collect($r->schools)->map(function ($school) {
+            SchoolMember::create([
+                'user_id' => $id,
+                'school' => $school
+            ]);
+        });
 
     }
 }
