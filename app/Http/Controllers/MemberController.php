@@ -23,18 +23,33 @@ class MemberController extends Controller
             'schools' => 'required'
         ]);
 
+
+
         try {
-            User::create([
+            $id = User::create([
                 'firstname' => $r->firstname,
                 'lastname' => $r->lastname,
                 'email' => $r->email
-            ]);
+            ])->id;
+
         } catch (QueryException $e) {
             $errorCode = $e->errorInfo[1];
             if ($errorCode == 1062) {
                 //duplicate
                 return Redirect::back()->withErrors(['msg' => 'Duplicate']);
             }
+        }
+
+        try {
+            foreach ($r->schools as $school => $value) {
+                SchoolMember::create([
+                    'userid' => $id,
+                    'school' => $school
+                ]);
+            }
+            return Redirect::back()->with('message', 'success');
+        } catch (QueryException $e) {
+            dd($e);
         }
 
 

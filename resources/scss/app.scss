@@ -72,11 +72,15 @@ body::-webkit-scrollbar {
     gap: 2rem;
     padding-top: 1.5rem;
 
+    .success {
+        color: green;
+    }
+
     .title {
         font-size: 300%;
         text-align: center;
     }
-
+    
     .form {
         display: flex;
         flex-direction: column;
