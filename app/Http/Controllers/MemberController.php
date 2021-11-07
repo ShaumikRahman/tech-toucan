@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 use App\Models\User;
 use App\Models\SchoolMember;
+use Redirect;
 
 class MemberController extends Controller
 {
@@ -21,20 +23,34 @@ class MemberController extends Controller
             'schools' => 'required'
         ]);
 
-        User::create([
-            'firstname' => $r->firstname,
-            'lastname' => $r->lastname,
-            'email' => $r->email
-        ]);
+        try {
+            User::create([
+                'firstname' => $r->firstname,
+                'lastname' => $r->lastname,
+                'email' => $r->email
+            ]);
+        } catch (QueryException $e) {
+            $errorCode = $e->errorInfo[1];
+            if ($errorCode == 1062) {
+                //duplicate
+                return Redirect::back()->withErrors(['msg' => 'Duplicate']);
+            }
+        }
+
+
+        // SchoolMember::create([
+        //     'userlink' => 1,
+        //     'school' => 'test'
+        // ]);
 
         //fix
 
-        collect($r->schools)->map(function ($school) {
-            SchoolMember::create([
-                'user_id' => $id,
-                'school' => $school
-            ]);
-        });
+        // collect($r->schools)->map(function ($school) {
+        //     SchoolMember::create([
+        //         'user_id' => $id,
+        //         'school' => $school
+        //     ]);
+        // });
 
     }
 }

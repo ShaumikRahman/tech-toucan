@@ -33,6 +33,11 @@
         <div class="email">
           <label class="label" for="email">Email</label>
           <input class="input" type="email" name="email" id="email" autocomplete="off" value="{{ old('email') }}"/>
+          @if ($errors->any())
+            <div class="error">
+              <p>Duplicate</p>
+            </div>
+          @endif
           @error('email') 
           <div class="error">
             <p>Invalid</p>

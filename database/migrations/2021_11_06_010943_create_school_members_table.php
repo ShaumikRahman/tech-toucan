@@ -14,7 +14,7 @@ class CreateSchoolMembersTable extends Migration
     public function up()
     {
         Schema::create('school_members', function (Blueprint $table) {
-            $table->foreignId('user_id');
+            $table->bigInteger('userlink');
             $table->string('school');
         });
     }
