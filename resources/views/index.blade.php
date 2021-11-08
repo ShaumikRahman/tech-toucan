@@ -23,7 +23,7 @@
       <form class="form" id="form" action="{{ route('index') }}" method="post">
       @csrf
         <div class="firstname">
-          <label class="label" for="firstname">Firstname</label>
+          <label class="label" for="firstname">First name</label>
           <input placeholder="First name" class="input" type="text" name="firstname" autocomplete="off" value="{{ old('firstname') }}">
           @error('firstname') 
           <div class="error">
@@ -32,7 +32,7 @@
           @enderror
         </div>
         <div class="lastname">
-          <label class="label" for="lastname">Lastname</label>
+          <label class="label" for="lastname">Last name</label>
           <input placeholder="Last name" class="input" type="text" name="lastname" autocomplete="off" value="{{ old('lastname') }}"/>
           @error('lastname') 
           <div class="error">
