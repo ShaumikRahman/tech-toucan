@@ -15,37 +15,42 @@
         <p>Success</p>
       </div>
       @endif
+      @if ($errors->has('database'))
+            <div class="error">
+              <p>Database error</p>
+            </div>
+          @endif
       <form class="form" id="form" action="{{ route('index') }}" method="post">
       @csrf
         <div class="firstname">
           <label class="label" for="firstname">Firstname</label>
-          <input class="input" type="text" name="firstname" autocomplete="off" value="{{ old('firstname') }}">
+          <input placeholder="First name" class="input" type="text" name="firstname" autocomplete="off" value="{{ old('firstname') }}">
           @error('firstname') 
           <div class="error">
-            <p>Invalid</p>
+            <p>Invalid first name</p>
           </div>
           @enderror
         </div>
         <div class="lastname">
           <label class="label" for="lastname">Lastname</label>
-          <input class="input" type="text" name="lastname" autocomplete="off" value="{{ old('lastname') }}"/>
+          <input placeholder="Last name" class="input" type="text" name="lastname" autocomplete="off" value="{{ old('lastname') }}"/>
           @error('lastname') 
           <div class="error">
-            <p>Invalid</p>
+            <p>Invalid last name</p>
           </div>
           @enderror
         </div>
         <div class="email">
           <label class="label" for="email">Email</label>
-          <input class="input" type="email" name="email" id="email" autocomplete="off" value="{{ old('email') }}"/>
-          @if ($errors->any())
+          <input placeholder="Email" class="input" type="email" name="email" id="email" autocomplete="off" value="{{ old('email') }}"/>
+          @if ($errors->has('duplicate'))
             <div class="error">
               <p>Duplicate</p>
             </div>
           @endif
           @error('email') 
           <div class="error">
-            <p>Invalid</p>
+            <p>Invalid email</p>
           </div>
           @enderror
         </div>

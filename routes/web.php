@@ -23,3 +23,4 @@ Route::get('/', [MemberController::class, 'index'])->name('index');
 Route::post('/', [MemberController::class, 'store']);
 
 Route::get('/schools', [SchoolsController::class, 'index'])->name('schools');
+Route::post('/schools', [SchoolsController::class, 'schools']);

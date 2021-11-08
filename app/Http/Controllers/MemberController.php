@@ -36,14 +36,16 @@ class MemberController extends Controller
             $errorCode = $e->errorInfo[1];
             if ($errorCode == 1062) {
                 //duplicate
-                return Redirect::back()->withErrors(['msg' => 'Duplicate']);
+                return Redirect::back()->withErrors(['duplicate' => 'email']);
+            } else {
+                return Redirect::back()->withErrors(['database' => 'database']);
             }
         }
 
         try {
             foreach ($r->schools as $school => $value) {
                 SchoolMember::create([
-                    'userid' => $id,
+                    'user_id' => $id,
                     'school' => $school
                 ]);
             }
@@ -51,21 +53,6 @@ class MemberController extends Controller
         } catch (QueryException $e) {
             dd($e);
         }
-
-
-        // SchoolMember::create([
-        //     'userlink' => 1,
-        //     'school' => 'test'
-        // ]);
-
-        //fix
-
-        // collect($r->schools)->map(function ($school) {
-        //     SchoolMember::create([
-        //         'user_id' => $id,
-        //         'school' => $school
-        //     ]);
-        // });
 
     }
 }

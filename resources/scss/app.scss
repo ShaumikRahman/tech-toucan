@@ -76,6 +76,10 @@ body::-webkit-scrollbar {
         color: green;
     }
 
+    .error {
+        color: red;
+    }
+
     .title {
         font-size: 300%;
         text-align: center;
@@ -160,6 +164,12 @@ body::-webkit-scrollbar {
         .php {
             text-align: center;
         }
+    }
+
+    .schoolForm {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
     }
 
     .schools {

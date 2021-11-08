@@ -15,7 +15,7 @@ class CreateSchoolMembersTable extends Migration
     {
         Schema::create('school_members', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('userid');
+            $table->foreignId('user_id');
             $table->string('school');
         });
     }
