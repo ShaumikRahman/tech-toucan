@@ -4,7 +4,7 @@ This document will explain how to setup and run the project.
 
 ## Required files
 
-Once you have navigated to the project directory please run two commands. 'npm install' and 'composer update --no-scripts' will install all required files to successfully run the project. Once these commands have finished please proceed to seting up the database.
+Please ensure that you have node and composer installed on the machine. Once you have navigated to the project directory please run two commands. 'npm install' and 'composer update --no-scripts', this will install all required files to successfully run the project. Once these commands have finished please proceed to seting up the database.
 
 ## Database
 

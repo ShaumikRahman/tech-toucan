@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @yield('meta')
 </head>
-<body id="body" class="dark">
+<body id="body">
     <div class="navbar">
       <h3 id="home">
         <a href="{{ route('index') }}">Home</a>
