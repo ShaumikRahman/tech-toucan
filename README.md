@@ -4,7 +4,7 @@ This document will explain how to setup and run the project.
 
 ## Database
 
-Please ensure that an SQL connection is running locally with an empty database named 'tech-toucan' on port 3306, I tested this locally using XAMPP. Alternatively, edit the database configuration in the .env file to point towards a different connection where a an empty database named 'tech-toucan' has been setup. Editing the environment variables will require the project to be rebuilt, please do this by running the command 'npm run development' in the projects directory.
+Please ensure that an SQL connection is running locally with an empty database named 'tech_toucan' on port 3306, I tested this locally using XAMPP. Alternatively, edit the database configuration in the .env file to point towards a different connection where a an empty database named 'tech_toucan' has been setup. Editing the environment variables will require the project to be rebuilt, please do this by running the command 'npm run development' in the projects directory.
 
 ## Migrations
 
